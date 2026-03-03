@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manchester Battle Arena</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #D91E18;
+      --red-dark: #A01510;
+      --red-dim: rgba(217,30,24,0.12);
+      --white: #F5F0ED;
+      --off: #1a1a1a;
+      --mid: #2e2e2e;
+      --subtle: #555;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--off);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(26,26,26,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(217,30,24,0.2);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--red); }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--red); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 8rem 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 79px,
+          rgba(217,30,24,0.04) 79px,
+          rgba(217,30,24,0.04) 80px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 79px,
+          rgba(217,30,24,0.04) 79px,
+          rgba(217,30,24,0.04) 80px
+        );
+    }
+
+    .hero-glow {
+      position: absolute; top: -10%; right: -5%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(217,30,24,0.18) 0%, transparent 65%);
+      z-index: 0;
+      animation: pulse 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); opacity: 0.8; }
+      to   { transform: scale(1.15); opacity: 1; }
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 900px; }
+
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.2s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 12vw, 10rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      opacity: 0;
+      animation: fadeUp 0.6s 0.4s forwards;
+    }
+
+    .hero-title .accent { color: var(--red); display: block; }
+
+    .hero-sub {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      color: #999;
+      max-width: 480px;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.6s forwards;
+    }
+
+    .hero-cta {
+      margin-top: 3rem;
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.8s forwards;
+    }
+
+    .btn {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.85rem 2.2rem;
+      border: none; cursor: pointer; text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(245,240,237,0.3);
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    }
+    .btn-ghost:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+
+    .hero-stat-row {
+      margin-top: 4rem;
+      display: flex; gap: 3rem; flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s 1s forwards;
+    }
+
+    .stat { border-left: 2px solid var(--red); padding-left: 1rem; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--subtle);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 3rem; }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: 0.03em;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(217,30,24,0.4), transparent);
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--off); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-body {
+      font-size: 1.05rem;
+      color: #aaa;
+      line-height: 1.8;
+    }
+    .about-body p + p { margin-top: 1.2rem; }
+
+    .about-pillars {
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+
+    .pillar {
+      background: var(--mid);
+      padding: 1.5rem;
+      border-left: 3px solid var(--red);
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+      transition: background 0.2s;
+    }
+    .pillar:hover { background: #363636; }
+
+    .pillar-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .pillar p { font-size: 0.9rem; color: #888; line-height: 1.6; }
+
+    /* ── EVENTS ── */
+    #events { background: #141414; }
+
+    .events-header { max-width: 1100px; margin: 0 auto 3rem; }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .event-card {
+      background: var(--mid);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+      transition: transform 0.2s, background 0.2s;
+      cursor: default;
+    }
+    .event-card:hover { transform: translateY(-4px); background: #383838; }
+
+    .event-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--red);
+    }
+
+    .event-type {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.6rem;
+    }
+
+    .event-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .event-meta {
+      display: flex; flex-direction: column; gap: 0.4rem;
+      font-size: 0.88rem;
+      color: #888;
+    }
+    .event-meta span { display: flex; align-items: center; gap: 0.5rem; }
+    .event-meta .icon { color: var(--red); font-size: 0.8rem; }
+
+    .event-badge {
+      position: absolute; top: 1.4rem; right: 1.4rem;
+      background: var(--red-dim);
+      border: 1px solid rgba(217,30,24,0.4);
+      color: var(--red);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+    }
+
+    /* ── JOIN / CONTACT ── */
+    #join { background: var(--off); }
+
+    .join-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+    }
+
+    .join-text .about-body { margin-top: 1.2rem; }
+
+    .field { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    input, select, textarea {
+      background: var(--mid);
+      border: 1px solid #3a3a3a;
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.8rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--red); }
+    textarea { resize: vertical; min-height: 120px; }
+    select option { background: var(--mid); }
+
+    /* ── CONTACT BUTTONS ── */
+    .contact-buttons { display: flex; flex-direction: column; gap: 1rem; }
+
+    .contact-btn {
+      display: flex; align-items: center; gap: 1.2rem;
+      background: var(--mid);
+      padding: 1.4rem 1.6rem;
+      text-decoration: none;
+      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+      border-left: 3px solid transparent;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .contact-btn:hover { background: #363636; border-color: var(--red); transform: translateX(4px); }
+
+    .contact-btn-icon {
+      font-size: 1.3rem; color: var(--red);
+      width: 2rem; text-align: center; flex-shrink: 0;
+    }
+
+    .contact-btn-body { display: flex; flex-direction: column; gap: 0.2rem; flex: 1; }
+
+    .contact-btn-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .contact-btn-sub { font-size: 0.82rem; color: #777; }
+
+    .contact-btn-arrow { color: var(--red); font-size: 1.1rem; opacity: 0; transition: opacity 0.2s; }
+    .contact-btn:hover .contact-btn-arrow { opacity: 1; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0e0e0e;
+      padding: 2.5rem 3rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+      border-top: 1px solid rgba(217,30,24,0.15);
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--red); }
+
+    footer p {
+      font-size: 0.82rem;
+      color: #555;
+    }
+
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #555;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--red); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.5rem; }
+      #hero { padding: 7rem 1.5rem 3rem; }
+      .about-grid, .join-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; align-items: flex-start; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">MBA<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#join">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Manchester's Premier Fighting Game Community</p>
+      <h1 class="hero-title">
+        Manchester
+        <span class="accent">Battle Arena</span>
+      </h1>
+      <p class="hero-sub">
+        Compete, improve, and connect with the best fighting game players in Greater Manchester.
+      </p>
+      <div class="hero-cta">
+        <a href="#events" class="btn btn-ghost">View Events</a>
+      </div>
+      <div class="hero-stat-row">
+        <div class="stat">
+          <div class="stat-num">Weekly</div>
+          <div class="stat-label">Sessions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Monthly</div>
+          <div class="stat-label">Tournaments</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">2011</div>
+          <div class="stat-label">Est. Manchester</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div>
+        <p class="section-label">Who We Are</p>
+        <h2 class="section-title">Built for Competitors. Open to Everyone.</h2>
+        <div class="about-body">
+          <p>Manchester Battle Arena started as a handful of players gathering at a local venue. Today, we're one of the North's most active FGC communities — running regular weeklies, locals, and community tournaments across all major titles.</p>
+          <p>Whether you're picking up a stick for the first time or grinding ranked, there's a place for you here. We believe the fighting game community grows stronger when everyone — from day-ones to veterans — plays together.</p>
+        </div>
+      </div>
+      <div class="about-pillars">
+        <div class="pillar">
+          <p class="pillar-title">Community First</p>
+          <p>We're a welcoming space for players of all skill levels. No gatekeeping — just good games and good people.</p>
+        </div>
+        <div class="pillar">
+          <p class="pillar-title">Competitive Spirit</p>
+          <p>Regular tournaments and bracket play push everyone to level up. Casual and serious players both have a home here.</p>
+        </div>
+        <div class="pillar">
+          <p class="pillar-title">All Titles Welcome</p>
+          <p>Street Fighter, Tekken, Guilty Gear, Mortal Kombat — we run setups for all major titles at our sessions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="events-header">
+      <p class="section-label">Upcoming</p>
+      <h2 class="section-title">Events & Sessions</h2>
+    </div>
+    <div class="events-grid">
+
+      <div class="event-card">
+        <div class="event-badge">Weekly</div>
+        <p class="event-type">Casual Session</p>
+        <p class="event-name">MBA Weekly Locals</p>
+        <div class="event-meta">
+          <span><span class="icon">▸</span> Every Monday, 6:00pm – Late</span>
+          <span><span class="icon">▸</span> Pixel Bar, Manchester</span>
+          <span><span class="icon">▸</span> 10 Thomas Street, M4 1DH</span>
+        </div>
+      </div>
+
+      <a style="display: block; width: 100%" href="https://www.start.gg/mbamar26" target="_blank">
+        <div class="event-card">
+          <p class="event-type">Tournament</p>
+          <p class="event-name">MBA Fight Series March</p>
+          <div class="event-meta">
+            <span><span class="icon">▸</span> Sunday 8 March 2026, 12:00pm - 6:00pm</span>
+            <span><span class="icon">▸</span> Pixel Bar Manchester</span>
+            <span><span class="icon">▸</span> Click this card to sign up! </span>
+          </div>
+        </div>
+      </a>
+      
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- JOIN -->
+  <section id="join">
+    <div class="join-inner">
+      <div class="join-text">
+        <p class="section-label">Get Involved</p>
+        <h2 class="section-title">Join the Arena</h2>
+        <div class="about-body">
+          <p>Ready to step into the bracket? Fill out the form and we'll get back to you with details on upcoming sessions, our Discord, and how to get your first session free.</p>
+          <p>All skill levels welcome — no experience necessary. Just bring your competitive spirit.</p>
+        </div>
+      </div>
+      <div class="contact-buttons">
+        <a href="mailto:mbagaming8@gmail.com" class="contact-btn">
+          <span class="contact-btn-icon">✉</span>
+          <span class="contact-btn-body">
+            <span class="contact-btn-label">Email Us</span>
+            <span class="contact-btn-sub">Drop us a message directly</span>
+          </span>
+          <span class="contact-btn-arrow">→</span>
+        </a>
+        <a href="https://discord.gg/xstkGUmk9z" target="_blank" rel="noopener" class="contact-btn">
+          <span class="contact-btn-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+          </span>
+          <span class="contact-btn-body">
+            <span class="contact-btn-label">Join our Discord</span>
+            <span class="contact-btn-sub">Chat, results & announcements</span>
+          </span>
+          <span class="contact-btn-arrow">→</span>
+        </a>
+        <a href="https://x.com/MBA_GAMING" target="_blank" rel="noopener" class="contact-btn">
+          <span class="contact-btn-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </span>
+          <span class="contact-btn-body">
+            <span class="contact-btn-label">Follow on X</span>
+            <span class="contact-btn-sub">News & tournament updates</span>
+          </span>
+          <span class="contact-btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Manchester Battle <span>Arena</span></div>
+    <p>© 2026 Manchester Battle Arena. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#events">Events</a>
+      <a href="#join">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
