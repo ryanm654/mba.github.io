@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Manchester Battle Arena - VSFighting XIV results by game"/>
+  <link rel="icon" href="favicon.png" />
+  <title>VSFighting XIV Results | Manchester Battle Arena</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #D91E18;
+      --red-dark: #A01510;
+      --red-dim: rgba(217,30,24,0.12);
+      --white: #F5F0ED;
+      --off: #1a1a1a;
+      --mid: #2e2e2e;
+      --subtle: #555;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--off);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.5rem 3rem;
+      background: rgba(26,26,26,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(217,30,24,0.2);
+    }
+
+    .nav-logo-img {
+      height: 70px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--red); }
+
+    /* ── PAGE HERO ── */
+    #page-hero {
+      min-height: 42vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 8rem 3rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 79px,
+          rgba(217,30,24,0.04) 79px,
+          rgba(217,30,24,0.04) 80px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 79px,
+          rgba(217,30,24,0.04) 79px,
+          rgba(217,30,24,0.04) 80px
+        );
+    }
+
+    .hero-glow {
+      position: absolute; top: -10%; right: -5%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(217,30,24,0.18) 0%, transparent 65%);
+      z-index: 0;
+    }
+
+    .page-hero-content { position: relative; z-index: 1; max-width: 900px; }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--white);
+    }
+
+    .page-hero-sub {
+      margin-top: 1.5rem;
+      font-size: 1.05rem;
+      color: #999;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .page-hero-stats {
+      margin-top: 2.5rem;
+      display: flex; gap: 3rem; flex-wrap: wrap;
+    }
+    .stat { border-left: 2px solid var(--red); padding-left: 1rem; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--subtle);
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(217,30,24,0.4), transparent);
+    }
+
+    /* ── JUMP NAV ── */
+    #jump-nav {
+      background: #141414;
+      padding: 2rem 3rem;
+    }
+    .jump-nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+    }
+    .jump-nav-inner a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #aaa;
+      text-decoration: none;
+      background: var(--mid);
+      padding: 0.5rem 1rem;
+      border: 1px solid transparent;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .jump-nav-inner a:hover { color: var(--red); border-color: rgba(217,30,24,0.4); }
+
+    /* ── RESULTS ── */
+    #results { background: var(--off); padding: 5rem 3rem; }
+
+    .results-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 3rem; }
+
+    .game-block {
+      background: var(--mid);
+      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+      position: relative;
+      overflow: hidden;
+    }
+    .game-block::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--red);
+    }
+
+    .game-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid rgba(245,240,237,0.08);
+      gap: 1rem; flex-wrap: wrap;
+    }
+
+    .game-logo-wrap { display: flex; align-items: center; min-height: 40px; }
+    .game-logo { max-height: 40px; max-width: 220px; width: auto; display: block; }
+    .game-logo-fallback {
+      display: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.03em;
+      color: var(--white);
+    }
+    .game-logo-wrap.no-logo .game-logo { display: none; }
+    .game-logo-wrap.no-logo .game-logo-fallback { display: block; }
+
+    .entrant-count {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      white-space: nowrap;
+    }
+
+    .result-list { list-style: none; }
+    .result-row {
+      display: flex; align-items: baseline; gap: 1.2rem;
+      padding: 0.85rem 2rem;
+      border-bottom: 1px solid rgba(245,240,237,0.05);
+      transition: background 0.15s;
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-row:hover { background: rgba(217,30,24,0.05); }
+
+    .result-rank {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      color: var(--red);
+      min-width: 3.2rem;
+      flex-shrink: 0;
+    }
+
+    .result-name {
+      font-size: 0.95rem;
+      color: var(--white);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0e0e0e;
+      padding: 2.5rem 3rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+      border-top: 1px solid rgba(217,30,24,0.15);
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--red); }
+
+    footer p {
+      font-size: 0.82rem;
+      color: #555;
+    }
+
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #555;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--red); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      #page-hero { padding: 7rem 1.5rem 2.5rem; }
+      #jump-nav { padding: 1.5rem; }
+      #results { padding: 3rem 1.5rem; }
+      .game-header { padding: 1.2rem 1.5rem; }
+      .result-row { padding: 0.75rem 1.5rem; }
+      footer { flex-direction: column; align-items: flex-start; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html#hero" class="nav-logo">
+      <img src="logo.png" alt="Manchester Battle Arena" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#events">Events</a></li>
+      <li><a href="results.html" class="active">Results</a></li>
+      <li><a href="index.html#join">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section id="page-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="page-hero-content">
+      <p class="section-label">Tournament Recap</p>
+      <h1 class="page-hero-title">VSFighting XIV Results</h1>
+      <p class="page-hero-sub">
+        Every event, every bracket. Full placements for MBA members and friends who competed at VSFighting XIV.
+      </p>
+      <div class="page-hero-stats">
+        <div class="stat">
+          <div class="stat-num">25</div>
+          <div class="stat-label">Games</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">149</div>
+          <div class="stat-label">Placements</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- JUMP NAV -->
+  <section id="jump-nav">
+    <div class="jump-nav-inner">
+          <a href="#street-fighter-6">Street Fighter 6</a>
+          <a href="#tekken-8">TEKKEN 8</a>
+          <a href="#3rd-strike">Street Fighter III: 3rd Strike</a>
+          <a href="#2xko">2XKO</a>
+          <a href="#marvel-tokon-fighting-souls">MARVEL Tokon: Fighting Souls</a>
+          <a href="#blazblue-central-fiction">BlazBlue: Central Fiction</a>
+          <a href="#guilty-gear-strive">Guilty Gear: Strive</a>
+          <a href="#under-night-in-birth-ii-sys-celes">UNDER NIGHT IN-BIRTH II: SYS:CELES</a>
+          <a href="#virtua-fighter-5-r-e-v-o-world-stage">Virtua Fighter 5 R.E.V.O. World Stage</a>
+          <a href="#avatar-legends">Avatar Legends</a>
+          <a href="#granblue-fantasy-versus-rising">Granblue Fantasy Versus: Rising</a>
+          <a href="#tekken-ball">TEKKEN BALL</a>
+          <a href="#soulcalibur-vi">SoulCalibur VI</a>
+          <a href="#tekken-6">TEKKEN 6</a>
+          <a href="#ultra-street-fighter-iv">Ultra Street Fighter IV</a>
+          <a href="#fatal-fury-city-of-the-wolves">Fatal Fury: City of the Wolves</a>
+          <a href="#king-of-fighters-xv">King of Fighters XV</a>
+          <a href="#invincible-vs">Invincible VS</a>
+          <a href="#dead-or-alive-6-last-round">Dead or Alive 6: Last Round</a>
+          <a href="#super-street-fighter-ii-turbo">Super Street Fighter II Turbo</a>
+          <a href="#ultimate-marvel-vs-capcom-3">Ultimate Marvel vs Capcom 3</a>
+          <a href="#def-jam-fight-for-ny">Def Jam: Fight for NY</a>
+          <a href="#marvel-vs-capcom-2">Marvel vs Capcom 2</a>
+          <a href="#melty-blood-type-lumina">Melty Blood: Type Lumina</a>
+          <a href="#vampire-savior">Vampire Savior</a>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="results-inner">
+
+      <div class="game-block" id="street-fighter-6">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/street-fighter-6.png" alt="Street Fighter 6" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Street Fighter 6</span>
+          </div>
+          <span class="entrant-count">25 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">1st</span>
+              <span class="result-name">Mysticsmash</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">4th</span>
+              <span class="result-name">Linknova</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">7th</span>
+              <span class="result-name">Matt Hazard</span>
+            </li>
+            <li class="result-row" data-scene="Leeds">
+              <span class="result-rank">17th</span>
+              <span class="result-name">Blabbo</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">17th</span>
+              <span class="result-name">Lukey</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">17th</span>
+              <span class="result-name">SuperReversal</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Gooseberry Jones</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">49th</span>
+              <span class="result-name">Goose</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">49th</span>
+              <span class="result-name">Levi</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">49th</span>
+              <span class="result-name">Zuccro</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">65th</span>
+              <span class="result-name">Afzal</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">65th</span>
+              <span class="result-name">Icarus</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">65th</span>
+              <span class="result-name">Saiontea</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">65th</span>
+              <span class="result-name">SeanSymphony</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">65th</span>
+              <span class="result-name">Vals</span>
+            </li>
+            <li class="result-row" data-scene="Leeds">
+              <span class="result-rank">65th</span>
+              <span class="result-name">Willo</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">65th</span>
+              <span class="result-name">Yingah</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">97th</span>
+              <span class="result-name">Hoseafidel</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">97th</span>
+              <span class="result-name">King of Bamboo</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">97th</span>
+              <span class="result-name">LK_SOBAT</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">97th</span>
+              <span class="result-name">MissLilium</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">129th</span>
+              <span class="result-name">BreakingMax</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">129th</span>
+              <span class="result-name">Itoshi</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">193rd</span>
+              <span class="result-name">Abswing</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">193rd</span>
+              <span class="result-name">CluckMinister</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="tekken-8">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/tekken-8.png" alt="TEKKEN 8" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">TEKKEN 8</span>
+          </div>
+          <span class="entrant-count">20 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">25th</span>
+              <span class="result-name">Memoire</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Manu-Xiaoyu</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">65th</span>
+              <span class="result-name">Icarus</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">65th</span>
+              <span class="result-name">MartianEater</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">97th</span>
+              <span class="result-name">CluckMinister</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">97th</span>
+              <span class="result-name">Hoseafidel</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">97th</span>
+              <span class="result-name">Mirikash</span>
+            </li>
+            <li class="result-row" data-scene="Leeds">
+              <span class="result-rank">97th</span>
+              <span class="result-name">Zephhyr</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">129th</span>
+              <span class="result-name">Jeysam</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">129th</span>
+              <span class="result-name">Knuggy</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">129th</span>
+              <span class="result-name">Tin</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">193rd</span>
+              <span class="result-name">PrawnSalmon</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">193rd</span>
+              <span class="result-name">Shadowzz</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">193rd</span>
+              <span class="result-name">Sweggy3k</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">193rd</span>
+              <span class="result-name">Yardyzard</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">257th</span>
+              <span class="result-name">Levi</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">257th</span>
+              <span class="result-name">Patel347</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">257th</span>
+              <span class="result-name">SeanSymphony</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">257th</span>
+              <span class="result-name">Skeletor9000</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">257th</span>
+              <span class="result-name">Yingah</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="3rd-strike">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/3rd-strike.png" alt="3rd Strike (hosted by Virtua Chip Shop)" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Street Fighter III: 3rd Strike</span>
+          </div>
+          <span class="entrant-count">11 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">3rd</span>
+              <span class="result-name">Satyricon</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">13th</span>
+              <span class="result-name">Yingah</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">17th</span>
+              <span class="result-name">Solidus</span>
+            </li>
+            <li class="result-row" data-scene="Leeds">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Blabbo</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Vals</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">49th</span>
+              <span class="result-name">Goose</span>
+            </li>
+            <li class="result-row" data-scene="Leeds">
+              <span class="result-rank">49th</span>
+              <span class="result-name">Willo</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">65th</span>
+              <span class="result-name">Linknova</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">65th</span>
+              <span class="result-name">Lukey</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">65th</span>
+              <span class="result-name">Saiontea</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">65th</span>
+              <span class="result-name">The Facebreaker</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="2xko">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/2xko-challenger-event.png" alt="2XKO Challenger Event" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">2XKO</span>
+          </div>
+          <span class="entrant-count">10 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">7th</span>
+              <span class="result-name">Fullmetal Fury</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">9th</span>
+              <span class="result-name">Mysticsmash</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">13th</span>
+              <span class="result-name">MC-Kenzie</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">25th</span>
+              <span class="result-name">BreakingMax</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">25th</span>
+              <span class="result-name">Yardyzard</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">LK_SOBAT</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Themata</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">49th</span>
+              <span class="result-name">Vals</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">65th</span>
+              <span class="result-name">King of Bamboo</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">65th</span>
+              <span class="result-name">Patel347</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="marvel-tokon-fighting-souls">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/marvel-tokon-fighting-souls.png" alt="MARVEL Tokon: Fighting Souls" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">MARVEL Tokon: Fighting Souls</span>
+          </div>
+          <span class="entrant-count">8 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">3rd</span>
+              <span class="result-name">Abswing</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">13th</span>
+              <span class="result-name">Fullmetal Fury</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">13th</span>
+              <span class="result-name">Mackone</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Saiontea</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">49th</span>
+              <span class="result-name">Vals</span>
+            </li>
+            <li class="result-row" data-scene="Leeds">
+              <span class="result-rank">49th</span>
+              <span class="result-name">Willo</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">65th</span>
+              <span class="result-name">BP Tank</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">65th</span>
+              <span class="result-name">EinAston</span>
+            </li>
+        </ul>
+      </div>      
+
+      <div class="game-block" id="blazblue-central-fiction">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/blazblue-central-fiction.png" alt="BlazBlue: Central Fiction" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">BlazBlue: Central Fiction</span>
+          </div>
+          <span class="entrant-count">7 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">9th</span>
+              <span class="result-name">Versal</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">17th</span>
+              <span class="result-name">Themata</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">25th</span>
+              <span class="result-name">Dimz_</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">BP Tank</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Icarus</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">49th</span>
+              <span class="result-name">Clouds</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">49th</span>
+              <span class="result-name">Flumpilicious</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="guilty-gear-strive">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/guilty-gear-strive.png" alt="Guilty Gear: Strive (Arc World Tour 2026 Platinum Event)" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Guilty Gear: Strive</span>
+          </div>
+          <span class="entrant-count">7 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">5th</span>
+              <span class="result-name">Skarfelt</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">13th</span>
+              <span class="result-name">The Facebreaker</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">InfiniteBull</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">97th</span>
+              <span class="result-name">Gooseberry Jones</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">129th</span>
+              <span class="result-name">BP Tank</span>
+            </li>
+            <li class="result-row" data-scene="Leeds">
+              <span class="result-rank">129th</span>
+              <span class="result-name">Blabbo</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">129th</span>
+              <span class="result-name">Vals</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="under-night-in-birth-ii-sys-celes">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/under-night-in-birth-ii-sys-celes.png" alt="UNDER NIGHT IN-BIRTH II: SYS:CELES" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">UNDER NIGHT IN-BIRTH II: SYS:CELES</span>
+          </div>
+          <span class="entrant-count">7 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">1st</span>
+              <span class="result-name">Mysticsmash</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">3rd</span>
+              <span class="result-name">Jeshter</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">5th</span>
+              <span class="result-name">Versal</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">13th</span>
+              <span class="result-name">FrostedShadow</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">17th</span>
+              <span class="result-name">Dimz_</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Themata</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">49th</span>
+              <span class="result-name">BP Tank</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="virtua-fighter-5-r-e-v-o-world-stage">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/virtua-fighter-5-r-e-v-o-world-stage.png" alt="Virtua Fighter 5 R.E.V.O. World Stage" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Virtua Fighter 5 R.E.V.O. World Stage</span>
+          </div>
+          <span class="entrant-count">7 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">13th</span>
+              <span class="result-name">Dimz_</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">17th</span>
+              <span class="result-name">Jeshter</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">17th</span>
+              <span class="result-name">King of Bamboo</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">25th</span>
+              <span class="result-name">Itoshi</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">25th</span>
+              <span class="result-name">MissLilium</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Goose</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Icarus</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="avatar-legends">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/avatar-legends.png" alt="Avatar Legends" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Avatar Legends</span>
+          </div>
+          <span class="entrant-count">6 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">13th</span>
+              <span class="result-name">Gooseberry Jones</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">25th</span>
+              <span class="result-name">BP Tank</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Zuccro</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">49th</span>
+              <span class="result-name">The Facebreaker</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">65th</span>
+              <span class="result-name">Abswing</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">65th</span>
+              <span class="result-name">CluckMinister</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="granblue-fantasy-versus-rising">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/granblue-fantasy-versus-rising.png" alt="Granblue Fantasy Versus: Rising" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Granblue Fantasy Versus: Rising</span>
+          </div>
+          <span class="entrant-count">6 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Billiestic Missile</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">FrostedShadow</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">49th</span>
+              <span class="result-name">Flumpilicious</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">49th</span>
+              <span class="result-name">SuperReversal</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">65th</span>
+              <span class="result-name">Jeysam</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">97th</span>
+              <span class="result-name">Clouds</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="tekken-ball">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/tekken-ball.png" alt="TEKKEN BALL" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">TEKKEN BALL</span>
+          </div>
+          <span class="entrant-count">6 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Leeds">
+              <span class="result-rank">3rd</span>
+              <span class="result-name">Zephhyr</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">9th</span>
+              <span class="result-name">Icarus</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">9th</span>
+              <span class="result-name">SeanSymphony</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">25th</span>
+              <span class="result-name">MartianEater</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">25th</span>
+              <span class="result-name">Yingah</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Afzal</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="soulcalibur-vi">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/soulcalibur-vi.png" alt="SoulCalibur VI" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">SoulCalibur VI</span>
+          </div>
+          <span class="entrant-count">5 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">25th</span>
+              <span class="result-name">Yardyzard</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Flumpilicious</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Hoseafidel</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Jeysam</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">49th</span>
+              <span class="result-name">King of Bamboo</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="tekken-6">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/tekken-6.png" alt="TEKKEN 6" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">TEKKEN 6</span>
+          </div>
+          <span class="entrant-count">28 Entrants, 5 Placements</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">1st</span>
+              <span class="result-name">KRINDAN</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">5th</span>
+              <span class="result-name">Mirikash</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">9th</span>
+              <span class="result-name">Shadowzz</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">9th</span>
+              <span class="result-name">Sweggy3k</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">17th</span>
+              <span class="result-name">Solidus</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="ultra-street-fighter-iv">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/ultra-street-fighter-iv.png" alt="Ultra Street Fighter IV" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Ultra Street Fighter IV</span>
+          </div>
+          <span class="entrant-count">5 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Leeds">
+              <span class="result-rank">9th</span>
+              <span class="result-name">Willo</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">13th</span>
+              <span class="result-name">Abswing</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">25th</span>
+              <span class="result-name">Afzal</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Yingah</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">49th</span>
+              <span class="result-name">SeanSymphony</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="fatal-fury-city-of-the-wolves">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/fatal-fury-city-of-the-wolves.png" alt="Fatal Fury: City of the Wolves" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Fatal Fury: City of the Wolves</span>
+          </div>
+          <span class="entrant-count">3 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">9th</span>
+              <span class="result-name">Stickbrokevega</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Flumpilicious</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Levi</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="king-of-fighters-xv">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/king-of-fighters-xv.png" alt="King of Fighters XV" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">King of Fighters XV</span>
+          </div>
+          <span class="entrant-count">3 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">13th</span>
+              <span class="result-name">Jeshter</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">17th</span>
+              <span class="result-name">MissLilium</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">EinAston</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="invincible-vs">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/invincible-vs.png" alt="Invincible VS" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Invincible VS</span>
+          </div>
+          <span class="entrant-count">3 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">9th</span>
+              <span class="result-name">Mackone</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">17th</span>
+              <span class="result-name">Itoshi</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">17th</span>
+              <span class="result-name">Mysticsmash</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="dead-or-alive-6-last-round">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/dead-or-alive-6-last-round.png" alt="Dead or Alive 6: Last Round" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Dead or Alive 6: Last Round</span>
+          </div>
+          <span class="entrant-count">2 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">5th</span>
+              <span class="result-name">MissLilium</span>
+            </li>
+            <li class="result-row" data-scene="Friends">
+              <span class="result-rank">9th</span>
+              <span class="result-name">Itoshi</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="super-street-fighter-ii-turbo">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/super-street-fighter-ii-turbo.png" alt="Super Street Fighter II Turbo (hosted by Virtua Chip Shop)" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Super Street Fighter II Turbo</span>
+          </div>
+          <span class="entrant-count">2 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Leeds">
+              <span class="result-rank">17th</span>
+              <span class="result-name">Willo</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Saiontea</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="ultimate-marvel-vs-capcom-3">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/ultimate-marvel-vs-capcom-3.png" alt="Ultimate Marvel vs Capcom 3" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Ultimate Marvel vs Capcom 3</span>
+          </div>
+          <span class="entrant-count">2 Entrants</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Leeds">
+              <span class="result-rank">13th</span>
+              <span class="result-name">Willo</span>
+            </li>
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Mysticsmash</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="def-jam-fight-for-ny">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/def-jam-fight-for-ny.png" alt="Def Jam: Fight for NY" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Def Jam: Fight for NY</span>
+          </div>
+          <span class="entrant-count">1 Entrant</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">9th</span>
+              <span class="result-name">SeanSymphony</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="marvel-vs-capcom-2">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/marvel-vs-capcom-2.png" alt="Marvel vs Capcom 2" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Marvel vs Capcom 2</span>
+          </div>
+          <span class="entrant-count">1 Entrant</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">13th</span>
+              <span class="result-name">Abswing</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="melty-blood-type-lumina">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/melty-blood-type-lumina.png" alt="Melty Blood: Type Lumina" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Melty Blood: Type Lumina</span>
+          </div>
+          <span class="entrant-count">1 Entrant</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Liverpool">
+              <span class="result-rank">33rd</span>
+              <span class="result-name">Versal</span>
+            </li>
+        </ul>
+      </div>
+
+      <div class="game-block" id="vampire-savior">
+        <div class="game-header">
+          <div class="game-logo-wrap">
+            <img src="logos/vampire-savior.png" alt="Vampire Savior" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
+            <span class="game-logo-fallback">Vampire Savior</span>
+          </div>
+          <span class="entrant-count">1 Entrant</span>
+        </div>
+        <ul class="result-list">
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">13th</span>
+              <span class="result-name">King of Bamboo</span>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Manchester <span>Battle Arena</span></div>
+    <p>© 2026 Manchester Battle Arena. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#events">Events</a>
+      <a href="results.html">Results</a>
+      <a href="index.html#join">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
