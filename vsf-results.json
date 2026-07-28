@@ -1,0 +1,1447 @@
+{
+  "tournament": "VSFighting XIV Results",
+  "sectionLabel": "Tournament Recap",
+  "subtitle": "North West UK Results for VSFighting XIV. MBA, MFGC, SFO and Friends!",
+  "teams": {
+    "mba": {
+      "label": "MBA",
+      "color": "#C0392B"
+    },
+    "mfgc": {
+      "label": "MFGC",
+      "color": "#E85D9E"
+    },
+    "sfo": {
+      "label": "SFO",
+      "color": "#7D3C98"
+    }
+  },
+  "scenes": [
+    "Manchester",
+    "Liverpool",
+    "Leeds",
+    "Friends"
+  ],
+  "games": [
+    {
+      "name": "Street Fighter 6",
+      "slug": "street-fighter-6",
+      "logo": "logos/street-fighter-6.png",
+      "entrants": 255,
+      "results": [
+        {
+          "placement": 1,
+          "name": "MysticSmash",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 4,
+          "name": "Linknova",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 7,
+          "name": "Matt Hazard",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 17,
+          "name": "Blabbo",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        },
+        {
+          "placement": 17,
+          "name": "Lukey",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 17,
+          "name": "SuperReversal",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "Gooseberry Jones",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "Goose",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "Levi",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 49,
+          "name": "Zuccro",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "Afzal",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 65,
+          "name": "Icarus",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "Saiontea",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "SeanSymphony",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "Vals",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "Willo",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "Yingah",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 97,
+          "name": "Astrocrab",
+          "scene": "Leeds",
+          "teams": []
+        },
+        {
+          "placement": 97,
+          "name": "Hoseafidel",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 97,
+          "name": "King of Bamboo",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 97,
+          "name": "LK_SOBAT",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 97,
+          "name": "MissLilium",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 129,
+          "name": "BreakingMax",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 129,
+          "name": "Itoshi",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 129,
+          "name": "MattersOfFact",
+          "scene": "Leeds",
+          "teams": []
+        },
+        {
+          "placement": 193,
+          "name": "Abswing",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 193,
+          "name": "DrButtons",
+          "scene": "Leeds",
+          "teams": []
+        },
+        {
+          "placement": 193,
+          "name": "CluckMinister",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 193,
+          "name": "TooNington",
+          "scene": "Leeds",
+          "teams": []
+        }
+      ]
+    },
+    {
+      "name": "TEKKEN 8",
+      "slug": "tekken-8",
+      "logo": "logos/tekken-8.png",
+      "entrants": 339,
+      "results": [
+        {
+          "placement": 25,
+          "name": "Memoire",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "Manu-Xiaoyu",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 49,
+          "name": "YourBoyZulu",
+          "scene": "Leeds",
+          "teams": []
+        },
+        {
+          "placement": 65,
+          "name": "Icarus",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "xXmArTiAnEaTeRXx",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 97,
+          "name": "CluckMinister",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 97,
+          "name": "Hoseafidel",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 97,
+          "name": "Mirikash",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 97,
+          "name": "Zephhyr",
+          "scene": "Leeds",
+          "teams": [
+            "mba",
+            "sfo"
+          ]
+        },
+        {
+          "placement": 129,
+          "name": "Aquaberry Sweater",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 129,
+          "name": "Jeysam",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 129,
+          "name": "Knuggi3",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 129,
+          "name": "Superian",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        },
+        {
+          "placement": 129,
+          "name": "Tin",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 193,
+          "name": "PrawnSalmon",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 193,
+          "name": "__Shadowzz",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 193,
+          "name": "Sweggy3k",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 193,
+          "name": "Yardyzard",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 257,
+          "name": "Levi",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 257,
+          "name": "Patel347",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 257,
+          "name": "SeanSymphony",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 257,
+          "name": "Skeletor",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 257,
+          "name": "Yingah",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Street Fighter III: 3rd Strike",
+      "slug": "3rd-strike",
+      "logo": "logos/3rd-strike.png",
+      "entrants": 101,
+      "results": [
+        {
+          "placement": 3,
+          "name": "Satyricon",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 13,
+          "name": "Yingah",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 17,
+          "name": "Solidus",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 33,
+          "name": "Blabbo",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        },
+        {
+          "placement": 33,
+          "name": "Vals",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "Goose",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "Willo",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "Linknova",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 65,
+          "name": "Lukey",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "Saiontea",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "Shadow Bally",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "The Facebreaker",
+          "scene": "Liverpool",
+          "teams": []
+        }
+      ]
+    },
+    {
+      "name": "2XKO",
+      "slug": "2xko",
+      "logo": "logos/2xko-challenger-event.png",
+      "entrants": 93,
+      "results": [
+        {
+          "placement": 7,
+          "name": "Fullmetal Fury",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 9,
+          "name": "MysticSmash",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 13,
+          "name": "MC-Kenzie",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 25,
+          "name": "BreakingMax",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 25,
+          "name": "Yardyzard",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "LK_SOBAT",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "Themata",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "Vals",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "King of Bamboo",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "Patel347",
+          "scene": "Friends",
+          "teams": []
+        }
+      ]
+    },
+    {
+      "name": "MARVEL Tokon: Fighting Souls",
+      "slug": "marvel-tokon-fighting-souls",
+      "logo": "logos/marvel-tokon-fighting-souls.png",
+      "entrants": 94,
+      "results": [
+        {
+          "placement": 3,
+          "name": "Abswing",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 13,
+          "name": "Fullmetal Fury",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 13,
+          "name": "Mackone",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 25,
+          "name": "Astrocrab",
+          "scene": "Leeds",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "Saiontea",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "Vals",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "Willo",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "BP Tank",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 65,
+          "name": "EinAston",
+          "scene": "Manchester",
+          "teams": []
+        }
+      ]
+    },
+    {
+      "name": "BlazBlue: Central Fiction",
+      "slug": "blazblue-central-fiction",
+      "logo": "logos/blazblue-central-fiction.png",
+      "entrants": 68,
+      "results": [
+        {
+          "placement": 9,
+          "name": "Versal",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 17,
+          "name": "Themata",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 25,
+          "name": "Dimz_",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 33,
+          "name": "BP Tank",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "Icarus",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "Clouds",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 49,
+          "name": "Flumpilicious",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Guilty Gear: Strive",
+      "slug": "guilty-gear-strive",
+      "logo": "logos/guilty-gear-strive.png",
+      "entrants": 218,
+      "results": [
+        {
+          "placement": 5,
+          "name": "Skarfelt",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 13,
+          "name": "The Facebreaker",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "InfiniteBull",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 49,
+          "name": "YourBoyZulu",
+          "scene": "Leeds",
+          "teams": []
+        },
+        {
+          "placement": 97,
+          "name": "Gooseberry Jones",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 129,
+          "name": "BP Tank",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 129,
+          "name": "Blabbo",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        },
+        {
+          "placement": 129,
+          "name": "Vals",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Granblue Fantasy Versus: Rising",
+      "slug": "granblue-fantasy-versus-rising",
+      "logo": "logos/granblue-fantasy-versus-rising.png",
+      "entrants": 108,
+      "results": [
+        {
+          "placement": 5,
+          "name": "TooNington",
+          "scene": "Leeds",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "Billiestic Missile",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "FrostedShadow",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "Flumpilicious",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "SuperReversal",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 65,
+          "name": "Jeysam",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 97,
+          "name": "Clouds",
+          "scene": "Manchester",
+          "teams": []
+        }
+      ]
+    },
+    {
+      "name": "UNDER NIGHT IN-BIRTH II: SYS:CELES",
+      "slug": "under-night-in-birth-ii-sys-celes",
+      "logo": "logos/under-night-in-birth-ii-sys-celes.png",
+      "entrants": 52,
+      "results": [
+        {
+          "placement": 1,
+          "name": "MysticSmash",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 3,
+          "name": "Jeshter",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 5,
+          "name": "Versal",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 13,
+          "name": "FrostedShadow",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 17,
+          "name": "Dimz_",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 33,
+          "name": "Themata",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "BP Tank",
+          "scene": "Manchester",
+          "teams": []
+        }
+      ]
+    },
+    {
+      "name": "Virtua Fighter 5 R.E.V.O. World Stage",
+      "slug": "virtua-fighter-5-r-e-v-o-world-stage",
+      "logo": "logos/virtua-fighter-5-r-e-v-o-world-stage.png",
+      "entrants": 62,
+      "results": [
+        {
+          "placement": 13,
+          "name": "Dimz_",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 17,
+          "name": "Jeshter",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 17,
+          "name": "King of Bamboo",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 25,
+          "name": "Itoshi",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 25,
+          "name": "MissLilium",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "Goose",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 33,
+          "name": "Icarus",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Avatar Legends",
+      "slug": "avatar-legends",
+      "logo": "logos/avatar-legends.png",
+      "entrants": 103,
+      "results": [
+        {
+          "placement": 13,
+          "name": "Gooseberry Jones",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 25,
+          "name": "BP Tank",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "Zuccro",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "The Facebreaker",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 65,
+          "name": "Abswing",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "CluckMinister",
+          "scene": "Friends",
+          "teams": []
+        }
+      ]
+    },
+    {
+      "name": "TEKKEN BALL",
+      "slug": "tekken-ball",
+      "logo": "logos/tekken-ball.png",
+      "entrants": 51,
+      "results": [
+        {
+          "placement": 3,
+          "name": "Zephhyr",
+          "scene": "Leeds",
+          "teams": [
+            "mba",
+            "sfo"
+          ]
+        },
+        {
+          "placement": 9,
+          "name": "Icarus",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 9,
+          "name": "SeanSymphony",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 25,
+          "name": "xXmArTiAnEaTeRXx",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 25,
+          "name": "Yingah",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 33,
+          "name": "Afzal",
+          "scene": "Manchester",
+          "teams": []
+        }
+      ]
+    },
+    {
+      "name": "SoulCalibur VI",
+      "slug": "soulcalibur-vi",
+      "logo": "logos/soulcalibur-vi.png",
+      "entrants": 74,
+      "results": [
+        {
+          "placement": 25,
+          "name": "Yardyzard",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "Flumpilicious",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 33,
+          "name": "Hoseafidel",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 33,
+          "name": "Jeysam",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "King of Bamboo",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "Superian",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ultra Street Fighter IV",
+      "slug": "ultra-street-fighter-iv",
+      "logo": "logos/ultra-street-fighter-iv.png",
+      "entrants": 58,
+      "results": [
+        {
+          "placement": 9,
+          "name": "Willo",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        },
+        {
+          "placement": 13,
+          "name": "Abswing",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 25,
+          "name": "Afzal",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 129,
+          "name": "Superian",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        },
+        {
+          "placement": 33,
+          "name": "Yingah",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 49,
+          "name": "SeanSymphony",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TEKKEN 6",
+      "slug": "tekken-6",
+      "logo": "logos/tekken-6.png",
+      "entrants": 28,
+      "results": [
+        {
+          "placement": 1,
+          "name": "KRINDAN",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 5,
+          "name": "Mirikash",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 9,
+          "name": "__Shadowzz",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 9,
+          "name": "Sweggy3k",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 17,
+          "name": "Solidus",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fatal Fury: City of the Wolves",
+      "slug": "fatal-fury-city-of-the-wolves",
+      "logo": "logos/fatal-fury-city-of-the-wolves.png",
+      "entrants": 67,
+      "results": [
+        {
+          "placement": 9,
+          "name": "Stickbrokevega",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 33,
+          "name": "Flumpilicious",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 33,
+          "name": "Levi",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 65,
+          "name": "Astrocrab",
+          "scene": "Leeds",
+          "teams": []
+        }
+      ]
+    },
+    {
+      "name": "King of Fighters XV",
+      "slug": "king-of-fighters-xv",
+      "logo": "logos/king-of-fighters-xv.png",
+      "entrants": 36,
+      "results": [
+        {
+          "placement": 13,
+          "name": "Jeshter",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 17,
+          "name": "MissLilium",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "EinAston",
+          "scene": "Manchester",
+          "teams": []
+        }
+      ]
+    },
+    {
+      "name": "Ultimate Marvel vs Capcom 3",
+      "slug": "ultimate-marvel-vs-capcom-3",
+      "logo": "logos/ultimate-marvel-vs-capcom-3.png",
+      "entrants": 53,
+      "results": [
+        {
+          "placement": 13,
+          "name": "TooNington",
+          "scene": "Leeds",
+          "teams": []
+        },
+        {
+          "placement": 13,
+          "name": "Willo",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        },
+        {
+          "placement": 33,
+          "name": "MysticSmash",
+          "scene": "Liverpool",
+          "teams": []
+        }
+      ]
+    },
+    {
+      "name": "Invincible VS",
+      "slug": "invincible-vs",
+      "logo": "logos/invincible-vs.png",
+      "entrants": 25,
+      "results": [
+        {
+          "placement": 9,
+          "name": "Mackone",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 17,
+          "name": "Itoshi",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 17,
+          "name": "MysticSmash",
+          "scene": "Liverpool",
+          "teams": []
+        }
+      ]
+    },
+    {
+      "name": "Dead or Alive 6: Last Round",
+      "slug": "dead-or-alive-6-last-round",
+      "logo": "logos/dead-or-alive-6-last-round.png",
+      "entrants": 45,
+      "results": [
+        {
+          "placement": 5,
+          "name": "MissLilium",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 9,
+          "name": "Itoshi",
+          "scene": "Friends",
+          "teams": []
+        }
+      ]
+    },
+    {
+      "name": "Super Street Fighter II Turbo",
+      "slug": "super-street-fighter-ii-turbo",
+      "logo": "logos/super-street-fighter-ii-turbo.png",
+      "entrants": 56,
+      "results": [
+        {
+          "placement": 17,
+          "name": "Willo",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        },
+        {
+          "placement": 33,
+          "name": "Saiontea",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vampire Savior",
+      "slug": "vampire-savior",
+      "logo": "logos/vampire-savior.png",
+      "entrants": 53,
+      "results": [
+        {
+          "placement": 13,
+          "name": "King of Bamboo",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 25,
+          "name": "Superian",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Def Jam: Fight for NY",
+      "slug": "def-jam-fight-for-ny",
+      "logo": "logos/def-jam-fight-for-ny.png",
+      "entrants": 41,
+      "results": [
+        {
+          "placement": 9,
+          "name": "SeanSymphony",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Marvel vs Capcom 2",
+      "slug": "marvel-vs-capcom-2",
+      "logo": "logos/marvel-vs-capcom-2.png",
+      "entrants": 27,
+      "results": [
+        {
+          "placement": 13,
+          "name": "Abswing",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Melty Blood: Type Lumina",
+      "slug": "melty-blood-type-lumina",
+      "logo": "logos/melty-blood-type-lumina.png",
+      "entrants": 35,
+      "results": [
+        {
+          "placement": 33,
+          "name": "Versal",
+          "scene": "Liverpool",
+          "teams": []
+        }
+      ]
+    }
+  ]
+}
