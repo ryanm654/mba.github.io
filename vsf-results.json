@@ -1260,6 +1260,40 @@
       ]
     },
     {
+      "name": "Ultimate Marvel vs Capcom 3",
+      "slug": "ultimate-marvel-vs-capcom-3",
+      "logo": "logos/ultimate-marvel-vs-capcom-3.png",
+      "entrants": 53,
+      "results": [
+        {
+          "placement": 1,
+          "name": "Inclaa",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 13,
+          "name": "TooNington",
+          "scene": "Leeds",
+          "teams": []
+        },
+        {
+          "placement": 13,
+          "name": "Willo",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        },
+        {
+          "placement": 33,
+          "name": "MysticSmash",
+          "scene": "Liverpool",
+          "teams": []
+        }
+      ]
+    },
+    {
       "name": "King of Fighters XV",
       "slug": "king-of-fighters-xv",
       "logo": "logos/king-of-fighters-xv.png",
@@ -1281,34 +1315,6 @@
           "placement": 33,
           "name": "EinAston",
           "scene": "Manchester",
-          "teams": []
-        }
-      ]
-    },
-    {
-      "name": "Ultimate Marvel vs Capcom 3",
-      "slug": "ultimate-marvel-vs-capcom-3",
-      "logo": "logos/ultimate-marvel-vs-capcom-3.png",
-      "entrants": 53,
-      "results": [
-        {
-          "placement": 13,
-          "name": "TooNington",
-          "scene": "Leeds",
-          "teams": []
-        },
-        {
-          "placement": 13,
-          "name": "Willo",
-          "scene": "Leeds",
-          "teams": [
-            "sfo"
-          ]
-        },
-        {
-          "placement": 33,
-          "name": "MysticSmash",
-          "scene": "Liverpool",
           "teams": []
         }
       ]
