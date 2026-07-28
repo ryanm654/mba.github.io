@@ -144,6 +144,41 @@
       background: linear-gradient(90deg, transparent, rgba(217,30,24,0.4), transparent);
     }
 
+    /* ── SCENE FILTER ── */
+    #scene-filter {
+      background: #141414;
+      padding: 2.5rem 3rem 0.5rem;
+    }
+    .scene-filter-inner { max-width: 1100px; margin: 0 auto; }
+    .scene-filter-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin-bottom: 1rem;
+    }
+    .scene-filter-buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .scene-filter-btn {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--red);
+      color: var(--white);
+      border: 1px solid var(--red);
+      padding: 0.65rem 1.5rem;
+      cursor: pointer;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .scene-filter-btn:not(.active) {
+      background: transparent;
+      color: var(--subtle);
+      border-color: rgba(245,240,237,0.15);
+    }
+    .scene-filter-btn:hover { border-color: var(--red); color: var(--white); }
+
     /* ── JUMP NAV ── */
     #jump-nav {
       background: #141414;
@@ -171,7 +206,13 @@
     /* ── RESULTS ── */
     #results { background: var(--off); padding: 5rem 3rem; }
 
-    .results-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 3rem; }
+    .results-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+      align-items: start;
+      gap: 3rem;
+    }
 
     .game-block {
       background: var(--mid);
@@ -237,6 +278,14 @@
       color: var(--white);
     }
 
+    .team-prefix {
+      font-weight: 700;
+      margin-right: 0.4rem;
+    }
+    .team-prefix.mba { color: #C0392B; }
+    .team-prefix.mfgc { color: #E85D9E; }
+    .team-prefix.sfo { color: #7D3C98; }
+
     /* ── FOOTER ── */
     footer {
       background: #0e0e0e;
@@ -275,6 +324,7 @@
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       #page-hero { padding: 7rem 1.5rem 2.5rem; }
+      #scene-filter { padding: 2rem 1.5rem 0.5rem; }
       #jump-nav { padding: 1.5rem; }
       #results { padding: 3rem 1.5rem; }
       .game-header { padding: 1.2rem 1.5rem; }
@@ -306,7 +356,7 @@
       <p class="section-label">Tournament Recap</p>
       <h1 class="page-hero-title">VSFighting XIV Results</h1>
       <p class="page-hero-sub">
-        North West UK Results for VSFighting XIV. MBA, MFGC, SFO and Friends included!
+        North West UK Results for VSFighting XIV. MBA, MFGC, SFO and Friends!
       </p>
       <div class="page-hero-stats">
         <div class="stat">
@@ -317,6 +367,19 @@
           <div class="stat-num">149</div>
           <div class="stat-label">Placements</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE FILTER -->
+  <section id="scene-filter">
+    <div class="scene-filter-inner">
+      <p class="scene-filter-label">Filter by Scene</p>
+      <div class="scene-filter-buttons">
+        <button type="button" class="scene-filter-btn active" data-scene="Manchester" aria-pressed="true">Manchester</button>
+        <button type="button" class="scene-filter-btn active" data-scene="Liverpool" aria-pressed="true">Liverpool</button>
+        <button type="button" class="scene-filter-btn active" data-scene="Leeds" aria-pressed="true">Leeds</button>
+        <button type="button" class="scene-filter-btn active" data-scene="Friends" aria-pressed="true">Friends</button>
       </div>
     </div>
   </section>
@@ -381,11 +444,11 @@
             </li>
             <li class="result-row" data-scene="Leeds">
               <span class="result-rank">17th</span>
-              <span class="result-name">Blabbo</span>
+              <span class="result-name"><span class="team-prefix sfo">SFO</span>Blabbo</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">17th</span>
-              <span class="result-name">Lukey</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Lukey</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">17th</span>
@@ -393,11 +456,11 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Gooseberry Jones</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Gooseberry Jones</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">49th</span>
-              <span class="result-name">Goose</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Goose</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">49th</span>
@@ -405,7 +468,7 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">49th</span>
-              <span class="result-name">Zuccro</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Zuccro</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">65th</span>
@@ -413,37 +476,37 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">65th</span>
-              <span class="result-name">Icarus</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Icarus</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">65th</span>
-              <span class="result-name">Saiontea</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Saiontea</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">65th</span>
-              <span class="result-name">SeanSymphony</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>SeanSymphony</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">65th</span>
-              <span class="result-name">Vals</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Vals</span>
             </li>
             <li class="result-row" data-scene="Leeds">
               <span class="result-rank">65th</span>
-              <span class="result-name">Willo</span>
+              <span class="result-name"><span class="team-prefix sfo">SFO</span>Willo</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">65th</span>
-              <span class="result-name">Yingah</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Yingah</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">97th</span>
-              <span class="result-name">Hoseafidel</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Hoseafidel</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">97th</span>
-              <span class="result-name">King of Bamboo</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>King of Bamboo</span>
             </li>
-            <li class="result-row" data-scene="Friends">
+            <li class="result-row" data-scene="Manchester">
               <span class="result-rank">97th</span>
               <span class="result-name">LK_SOBAT</span>
             </li>
@@ -453,7 +516,7 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">129th</span>
-              <span class="result-name">BreakingMax</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>BreakingMax</span>
             </li>
             <li class="result-row" data-scene="Friends">
               <span class="result-rank">129th</span>
@@ -461,7 +524,7 @@
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">193rd</span>
-              <span class="result-name">Abswing</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Abswing</span>
             </li>
             <li class="result-row" data-scene="Friends">
               <span class="result-rank">193rd</span>
@@ -489,11 +552,11 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">65th</span>
-              <span class="result-name">Icarus</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Icarus</span>
             </li>
             <li class="result-row" data-scene="Friends">
               <span class="result-rank">65th</span>
-              <span class="result-name">MartianEater</span>
+              <span class="result-name">xXmArTiAnEaTeRXx</span>
             </li>
             <li class="result-row" data-scene="Friends">
               <span class="result-rank">97th</span>
@@ -501,39 +564,43 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">97th</span>
-              <span class="result-name">Hoseafidel</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Hoseafidel</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">97th</span>
-              <span class="result-name">Mirikash</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Mirikash</span>
             </li>
             <li class="result-row" data-scene="Leeds">
               <span class="result-rank">97th</span>
-              <span class="result-name">Zephhyr</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span><span class="team-prefix sfo">SFO</span>Zephhyr</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">129th</span>
-              <span class="result-name">Jeysam</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Aquaberry Sweater</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">129th</span>
-              <span class="result-name">Knuggy</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Jeysam</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">129th</span>
-              <span class="result-name">Tin</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Knuggi3</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">129th</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Tin</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">193rd</span>
-              <span class="result-name">PrawnSalmon</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>PrawnSalmon</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">193rd</span>
-              <span class="result-name">Shadowzz</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>__Shadowzz</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">193rd</span>
-              <span class="result-name">Sweggy3k</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Sweggy3k</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">193rd</span>
@@ -549,15 +616,15 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">257th</span>
-              <span class="result-name">SeanSymphony</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>SeanSymphony</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">257th</span>
-              <span class="result-name">Skeletor9000</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Skeletor</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">257th</span>
-              <span class="result-name">Yingah</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Yingah</span>
             </li>
         </ul>
       </div>
@@ -568,36 +635,36 @@
             <img src="logos/3rd-strike.png" alt="3rd Strike (hosted by Virtua Chip Shop)" class="game-logo" onerror="this.parentElement.classList.add('no-logo')" />
             <span class="game-logo-fallback">Street Fighter III: 3rd Strike</span>
           </div>
-          <span class="entrant-count">11 Placements</span>
+          <span class="entrant-count">12 Placements</span>
         </div>
         <ul class="result-list">
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">3rd</span>
-              <span class="result-name">Satyricon</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Satyricon</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">13th</span>
-              <span class="result-name">Yingah</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Yingah</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">17th</span>
-              <span class="result-name">Solidus</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Solidus</span>
             </li>
             <li class="result-row" data-scene="Leeds">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Blabbo</span>
+              <span class="result-name"><span class="team-prefix sfo">SFO</span>Blabbo</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Vals</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Vals</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">49th</span>
-              <span class="result-name">Goose</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Goose</span>
             </li>
             <li class="result-row" data-scene="Leeds">
               <span class="result-rank">49th</span>
-              <span class="result-name">Willo</span>
+              <span class="result-name"><span class="team-prefix sfo">SFO</span>Willo</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">65th</span>
@@ -605,11 +672,15 @@
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">65th</span>
-              <span class="result-name">Lukey</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Lukey</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">65th</span>
-              <span class="result-name">Saiontea</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Saiontea</span>
+            </li>
+            <li class="result-row" data-scene="Manchester">
+              <span class="result-rank">65th</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Shadow Bally</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">65th</span>
@@ -641,27 +712,27 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">25th</span>
-              <span class="result-name">BreakingMax</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>BreakingMax</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">25th</span>
               <span class="result-name">Yardyzard</span>
             </li>
-            <li class="result-row" data-scene="Friends">
+            <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
               <span class="result-name">LK_SOBAT</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Themata</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Themata</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">49th</span>
-              <span class="result-name">Vals</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Vals</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">65th</span>
-              <span class="result-name">King of Bamboo</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>King of Bamboo</span>
             </li>
             <li class="result-row" data-scene="Friends">
               <span class="result-rank">65th</span>
@@ -681,7 +752,7 @@
         <ul class="result-list">
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">3rd</span>
-              <span class="result-name">Abswing</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Abswing</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">13th</span>
@@ -689,19 +760,19 @@
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">13th</span>
-              <span class="result-name">Mackone</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Mackone</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Saiontea</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Saiontea</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">49th</span>
-              <span class="result-name">Vals</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Vals</span>
             </li>
             <li class="result-row" data-scene="Leeds">
               <span class="result-rank">49th</span>
-              <span class="result-name">Willo</span>
+              <span class="result-name"><span class="team-prefix sfo">SFO</span>Willo</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">65th</span>
@@ -729,11 +800,11 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">17th</span>
-              <span class="result-name">Themata</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Themata</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">25th</span>
-              <span class="result-name">Dimz_</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Dimz_</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
@@ -741,7 +812,7 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Icarus</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Icarus</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">49th</span>
@@ -749,7 +820,7 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">49th</span>
-              <span class="result-name">Flumpilicious</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Flumpilicious</span>
             </li>
         </ul>
       </div>
@@ -765,7 +836,7 @@
         <ul class="result-list">
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">5th</span>
-              <span class="result-name">Skarfelt</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Skarfelt</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">13th</span>
@@ -777,7 +848,7 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">97th</span>
-              <span class="result-name">Gooseberry Jones</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Gooseberry Jones</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">129th</span>
@@ -785,11 +856,11 @@
             </li>
             <li class="result-row" data-scene="Leeds">
               <span class="result-rank">129th</span>
-              <span class="result-name">Blabbo</span>
+              <span class="result-name"><span class="team-prefix sfo">SFO</span>Blabbo</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">129th</span>
-              <span class="result-name">Vals</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Vals</span>
             </li>
         </ul>
       </div>
@@ -817,15 +888,15 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">13th</span>
-              <span class="result-name">FrostedShadow</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>FrostedShadow</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">17th</span>
-              <span class="result-name">Dimz_</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Dimz_</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Themata</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Themata</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">49th</span>
@@ -845,7 +916,7 @@
         <ul class="result-list">
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">13th</span>
-              <span class="result-name">Dimz_</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Dimz_</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">17th</span>
@@ -853,7 +924,7 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">17th</span>
-              <span class="result-name">King of Bamboo</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>King of Bamboo</span>
             </li>
             <li class="result-row" data-scene="Friends">
               <span class="result-rank">25th</span>
@@ -865,11 +936,11 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Goose</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Goose</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Icarus</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Icarus</span>
             </li>
         </ul>
       </div>
@@ -885,7 +956,7 @@
         <ul class="result-list">
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">13th</span>
-              <span class="result-name">Gooseberry Jones</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Gooseberry Jones</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">25th</span>
@@ -893,7 +964,7 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Zuccro</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Zuccro</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">49th</span>
@@ -901,7 +972,7 @@
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">65th</span>
-              <span class="result-name">Abswing</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Abswing</span>
             </li>
             <li class="result-row" data-scene="Friends">
               <span class="result-rank">65th</span>
@@ -925,11 +996,11 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
-              <span class="result-name">FrostedShadow</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>FrostedShadow</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">49th</span>
-              <span class="result-name">Flumpilicious</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Flumpilicious</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">49th</span>
@@ -937,7 +1008,7 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">65th</span>
-              <span class="result-name">Jeysam</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Jeysam</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">97th</span>
@@ -957,23 +1028,23 @@
         <ul class="result-list">
             <li class="result-row" data-scene="Leeds">
               <span class="result-rank">3rd</span>
-              <span class="result-name">Zephhyr</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span><span class="team-prefix sfo">SFO</span>Zephhyr</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">9th</span>
-              <span class="result-name">Icarus</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Icarus</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">9th</span>
-              <span class="result-name">SeanSymphony</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>SeanSymphony</span>
             </li>
             <li class="result-row" data-scene="Friends">
               <span class="result-rank">25th</span>
-              <span class="result-name">MartianEater</span>
+              <span class="result-name">xXmArTiAnEaTeRXx</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">25th</span>
-              <span class="result-name">Yingah</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Yingah</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
@@ -997,19 +1068,19 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Flumpilicious</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Flumpilicious</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Hoseafidel</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Hoseafidel</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Jeysam</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Jeysam</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">49th</span>
-              <span class="result-name">King of Bamboo</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>King of Bamboo</span>
             </li>
         </ul>
       </div>
@@ -1025,23 +1096,23 @@
         <ul class="result-list">
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">1st</span>
-              <span class="result-name">KRINDAN</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>KRINDAN</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">5th</span>
-              <span class="result-name">Mirikash</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Mirikash</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">9th</span>
-              <span class="result-name">Shadowzz</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>__Shadowzz</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">9th</span>
-              <span class="result-name">Sweggy3k</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Sweggy3k</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">17th</span>
-              <span class="result-name">Solidus</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Solidus</span>
             </li>
         </ul>
       </div>
@@ -1057,11 +1128,11 @@
         <ul class="result-list">
             <li class="result-row" data-scene="Leeds">
               <span class="result-rank">9th</span>
-              <span class="result-name">Willo</span>
+              <span class="result-name"><span class="team-prefix sfo">SFO</span>Willo</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">13th</span>
-              <span class="result-name">Abswing</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Abswing</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">25th</span>
@@ -1069,11 +1140,11 @@
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Yingah</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Yingah</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">49th</span>
-              <span class="result-name">SeanSymphony</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>SeanSymphony</span>
             </li>
         </ul>
       </div>
@@ -1089,11 +1160,11 @@
         <ul class="result-list">
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">9th</span>
-              <span class="result-name">Stickbrokevega</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Stickbrokevega</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Flumpilicious</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>Flumpilicious</span>
             </li>
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">33rd</span>
@@ -1137,7 +1208,7 @@
         <ul class="result-list">
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">9th</span>
-              <span class="result-name">Mackone</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Mackone</span>
             </li>
             <li class="result-row" data-scene="Friends">
               <span class="result-rank">17th</span>
@@ -1181,11 +1252,11 @@
         <ul class="result-list">
             <li class="result-row" data-scene="Leeds">
               <span class="result-rank">17th</span>
-              <span class="result-name">Willo</span>
+              <span class="result-name"><span class="team-prefix sfo">SFO</span>Willo</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">33rd</span>
-              <span class="result-name">Saiontea</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Saiontea</span>
             </li>
         </ul>
       </div>
@@ -1201,7 +1272,7 @@
         <ul class="result-list">
             <li class="result-row" data-scene="Leeds">
               <span class="result-rank">13th</span>
-              <span class="result-name">Willo</span>
+              <span class="result-name"><span class="team-prefix sfo">SFO</span>Willo</span>
             </li>
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">33rd</span>
@@ -1221,7 +1292,7 @@
         <ul class="result-list">
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">9th</span>
-              <span class="result-name">SeanSymphony</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>SeanSymphony</span>
             </li>
         </ul>
       </div>
@@ -1237,7 +1308,7 @@
         <ul class="result-list">
             <li class="result-row" data-scene="Liverpool">
               <span class="result-rank">13th</span>
-              <span class="result-name">Abswing</span>
+              <span class="result-name"><span class="team-prefix mfgc">MFGC</span>Abswing</span>
             </li>
         </ul>
       </div>
@@ -1269,7 +1340,7 @@
         <ul class="result-list">
             <li class="result-row" data-scene="Manchester">
               <span class="result-rank">13th</span>
-              <span class="result-name">King of Bamboo</span>
+              <span class="result-name"><span class="team-prefix mba">MBA</span>King of Bamboo</span>
             </li>
         </ul>
       </div>
@@ -1287,5 +1358,63 @@
       <a href="index.html#join">Contact</a>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const filterButtons = document.querySelectorAll('.scene-filter-btn');
+      const gameBlocks = document.querySelectorAll('.game-block');
+
+      const activeScenes = new Set(
+        Array.from(filterButtons).map((btn) => btn.dataset.scene)
+      );
+
+      function applyFilters() {
+        gameBlocks.forEach((block) => {
+          const rows = block.querySelectorAll('.result-row');
+          let visibleCount = 0;
+
+          rows.forEach((row) => {
+            const visible = activeScenes.has(row.dataset.scene);
+            row.style.display = visible ? '' : 'none';
+            if (visible) visibleCount += 1;
+          });
+
+          const countEl = block.querySelector('.entrant-count');
+          if (countEl) {
+            const label = visibleCount === 1 ? 'Placement' : 'Placements';
+            countEl.textContent = `${visibleCount} ${label}`;
+          }
+
+          const hasVisible = visibleCount > 0;
+          block.style.display = hasVisible ? '' : 'none';
+
+          const jumpLink = document.querySelector(
+            `.jump-nav-inner a[href="#${block.id}"]`
+          );
+          if (jumpLink) {
+            jumpLink.style.display = hasVisible ? '' : 'none';
+          }
+        });
+      }
+
+      filterButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const scene = btn.dataset.scene;
+          if (activeScenes.has(scene)) {
+            activeScenes.delete(scene);
+            btn.classList.remove('active');
+            btn.setAttribute('aria-pressed', 'false');
+          } else {
+            activeScenes.add(scene);
+            btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
+          }
+          applyFilters();
+        });
+      });
+
+      applyFilters();
+    })();
+  </script>
 </body>
 </html>
