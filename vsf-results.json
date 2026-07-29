@@ -78,6 +78,12 @@
           ]
         },
         {
+          "placement": 33,
+          "name": "Crazeh247 (Man)",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
           "placement": 49,
           "name": "Goose",
           "scene": "Manchester",
@@ -601,6 +607,76 @@
       ]
     },
     {
+      "name": "Guilty Gear: Strive",
+      "slug": "guilty-gear-strive",
+      "logo": "logos/guilty-gear-strive.png",
+      "entrants": 218,
+      "results": [
+        {
+          "placement": 5,
+          "name": "Skarfelt",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 13,
+          "name": "The Facebreaker",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "InfiniteBull",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 49,
+          "name": "YourBoyZulu",
+          "scene": "Leeds",
+          "teams": []
+        },
+        {
+          "placement": 97,
+          "name": "Gooseberry Jones",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 129,
+          "name": "BP Tank",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 129,
+          "name": "Blabbo",
+          "scene": "Leeds",
+          "teams": [
+            "sfo"
+          ]
+        },
+        {
+          "placement": 129,
+          "name": "Crazeh247 (Man)",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 129,
+          "name": "Vals",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        }
+      ]
+    },
+    {
       "name": "MARVEL Tokon: Fighting Souls",
       "slug": "marvel-tokon-fighting-souls",
       "logo": "logos/marvel-tokon-fighting-souls.png",
@@ -673,66 +749,64 @@
       ]
     },
     {
-      "name": "Guilty Gear: Strive",
-      "slug": "guilty-gear-strive",
-      "logo": "logos/guilty-gear-strive.png",
-      "entrants": 218,
+      "name": "UNDER NIGHT IN-BIRTH II: SYS:CELES",
+      "slug": "under-night-in-birth-ii-sys-celes",
+      "logo": "logos/under-night-in-birth-ii-sys-celes.png",
+      "entrants": 52,
       "results": [
         {
+          "placement": 1,
+          "name": "MysticSmash",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 3,
+          "name": "Jeshter",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
           "placement": 5,
-          "name": "Skarfelt",
+          "name": "Versal",
+          "scene": "Liverpool",
+          "teams": []
+        },
+        {
+          "placement": 13,
+          "name": "FrostedShadow",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 17,
+          "name": "Dimz_",
           "scene": "Liverpool",
           "teams": [
             "mfgc"
           ]
         },
         {
-          "placement": 13,
-          "name": "The Facebreaker",
-          "scene": "Liverpool",
+          "placement": 33,
+          "name": "Crazeh247 (Man)",
+          "scene": "Manchester",
           "teams": []
         },
         {
           "placement": 33,
-          "name": "InfiniteBull",
-          "scene": "Liverpool",
-          "teams": []
+          "name": "Themata",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
         },
         {
           "placement": 49,
-          "name": "YourBoyZulu",
-          "scene": "Leeds",
-          "teams": []
-        },
-        {
-          "placement": 97,
-          "name": "Gooseberry Jones",
-          "scene": "Manchester",
-          "teams": [
-            "mba"
-          ]
-        },
-        {
-          "placement": 129,
           "name": "BP Tank",
           "scene": "Manchester",
           "teams": []
-        },
-        {
-          "placement": 129,
-          "name": "Blabbo",
-          "scene": "Leeds",
-          "teams": [
-            "sfo"
-          ]
-        },
-        {
-          "placement": 129,
-          "name": "Vals",
-          "scene": "Manchester",
-          "teams": [
-            "mba"
-          ]
         }
       ]
     },
@@ -911,62 +985,6 @@
       ]
     },
     {
-      "name": "UNDER NIGHT IN-BIRTH II: SYS:CELES",
-      "slug": "under-night-in-birth-ii-sys-celes",
-      "logo": "logos/under-night-in-birth-ii-sys-celes.png",
-      "entrants": 52,
-      "results": [
-        {
-          "placement": 1,
-          "name": "MysticSmash",
-          "scene": "Liverpool",
-          "teams": []
-        },
-        {
-          "placement": 3,
-          "name": "Jeshter",
-          "scene": "Liverpool",
-          "teams": []
-        },
-        {
-          "placement": 5,
-          "name": "Versal",
-          "scene": "Liverpool",
-          "teams": []
-        },
-        {
-          "placement": 13,
-          "name": "FrostedShadow",
-          "scene": "Manchester",
-          "teams": [
-            "mba"
-          ]
-        },
-        {
-          "placement": 17,
-          "name": "Dimz_",
-          "scene": "Liverpool",
-          "teams": [
-            "mfgc"
-          ]
-        },
-        {
-          "placement": 33,
-          "name": "Themata",
-          "scene": "Manchester",
-          "teams": [
-            "mba"
-          ]
-        },
-        {
-          "placement": 49,
-          "name": "BP Tank",
-          "scene": "Manchester",
-          "teams": []
-        }
-      ]
-    },
-    {
       "name": "Virtua Fighter 5 R.E.V.O. World Stage",
       "slug": "virtua-fighter-5-r-e-v-o-world-stage",
       "logo": "logos/virtua-fighter-5-r-e-v-o-world-stage.png",
@@ -1021,6 +1039,56 @@
           "teams": [
             "mba"
           ]
+        }
+      ]
+    },
+    {
+      "name": "Avatar Legends",
+      "slug": "avatar-legends",
+      "logo": "logos/avatar-legends.png",
+      "entrants": 103,
+      "results": [
+        {
+          "placement": 13,
+          "name": "Gooseberry Jones",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 25,
+          "name": "BP Tank",
+          "scene": "Manchester",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "Zuccro",
+          "scene": "Manchester",
+          "teams": [
+            "mba"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "Abswing",
+          "scene": "Liverpool",
+          "teams": [
+            "mfgc"
+          ]
+        },
+        {
+          "placement": 65,
+          "name": "CluckMinister",
+          "scene": "Friends",
+          "teams": []
+        },
+        {
+          "placement": 33,
+          "name": "Crazeh247 (Man)",
+          "scene": "Manchester",
+          "teams": []
         }
       ]
     },
@@ -1132,50 +1200,6 @@
       ]
     },
     {
-      "name": "Avatar Legends",
-      "slug": "avatar-legends",
-      "logo": "logos/avatar-legends.png",
-      "entrants": 103,
-      "results": [
-        {
-          "placement": 13,
-          "name": "Gooseberry Jones",
-          "scene": "Manchester",
-          "teams": [
-            "mba"
-          ]
-        },
-        {
-          "placement": 25,
-          "name": "BP Tank",
-          "scene": "Manchester",
-          "teams": []
-        },
-        {
-          "placement": 33,
-          "name": "Zuccro",
-          "scene": "Manchester",
-          "teams": [
-            "mba"
-          ]
-        },
-        {
-          "placement": 65,
-          "name": "Abswing",
-          "scene": "Liverpool",
-          "teams": [
-            "mfgc"
-          ]
-        },
-        {
-          "placement": 65,
-          "name": "CluckMinister",
-          "scene": "Friends",
-          "teams": []
-        }
-      ]
-    },
-    {
       "name": "TEKKEN 6",
       "slug": "tekken-6",
       "logo": "logos/tekken-6.png",
@@ -1236,6 +1260,12 @@
           "teams": [
             "mfgc"
           ]
+        },
+        {
+          "placement": 25,
+          "name": "Crazeh247 (Man)",
+          "scene": "Manchester",
+          "teams": []
         },
         {
           "placement": 33,
